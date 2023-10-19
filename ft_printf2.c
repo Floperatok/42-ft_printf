@@ -6,7 +6,7 @@
 /*   By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 19:43:48 by nsalles           #+#    #+#             */
-/*   Updated: 2023/10/16 09:52:17 by nsalles          ###   ########.fr       */
+/*   Updated: 2023/10/18 07:35:14 by nsalles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_putuphexa(unsigned int n)
 	return (i);
 }
 
-int	ft_putptr2(uintptr_t n)
+int	ft_putptr2(unsigned long long n)
 {
 	int		i;
 

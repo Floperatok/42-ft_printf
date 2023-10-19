@@ -6,7 +6,7 @@
 /*   By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:17:40 by nsalles           #+#    #+#             */
-/*   Updated: 2023/10/16 09:43:00 by nsalles          ###   ########.fr       */
+/*   Updated: 2023/10/19 10:32:48 by nsalles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	ft_putstr(char *s)
 {
 	int	i;
 
-	if (!s)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
+	// if (!s)
+	// {
+	// 	write(1, "(null)", 6);
+	// 	return (6);
+	// }
 	i = 0;
 	while (s[i])
 		write(1, &s[i++], 1);
