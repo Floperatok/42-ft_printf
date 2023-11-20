@@ -6,7 +6,7 @@
 #    By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/15 18:55:17 by nsalles           #+#    #+#              #
-#    Updated: 2023/11/20 12:39:43 by nsalles          ###   ########.fr        #
+#    Updated: 2023/11/20 20:17:12 by nsalles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,12 +55,12 @@ $(OBJ_PATH)%.o:	$(SRC_PATH)%.c
 
 clean:
 	@rm -rf $(OBJ_PATH)
-	@echo "$(COM_COLOR)ft_printf clean:         $(OK_COLOR)[✓]$(NO_COLOR)"
+	@echo "$(COM_COLOR)clean ft_printf:             $(OK_COLOR)[✓]$(NO_COLOR)"
 
 fclean:
 	@rm -rf $(OBJ_PATH)
 	@rm -f $(NAME)
-	@echo "$(COM_COLOR)ft_printf fclean:        $(OK_COLOR)[✓]$(NO_COLOR)"
+	@echo "$(COM_COLOR)fclean ft_printf:            $(OK_COLOR)[✓]$(NO_COLOR)"
 
 re: fclean all
 
