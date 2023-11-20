@@ -6,32 +6,68 @@
 #    By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/15 18:55:17 by nsalles           #+#    #+#              #
-#    Updated: 2023/10/16 09:03:56 by nsalles          ###   ########.fr        #
+#    Updated: 2023/11/20 12:39:43 by nsalles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror
+####################################################################
+#                            CONFIG                                #
+####################################################################
 
-NAME	=	libftprintf.a
+CC			=	cc
+CFLAGS		=	-Wall -Werror -Wextra
+NAME		=	ft_printf.a
 
-SRCS	=	ft_printf.c ft_printf2.c
+####################################################################
+#                            FILES                                 #
+####################################################################
 
-OBJECTS	=	$(SRCS:.c=.o)
+SRC			=	ft_printf.c ft_printf2.c
 
-all:		$(NAME)
+OBJ			=	$(SRC:.c=.o)
 
-$(NAME):	$(OBJECTS)
-			ar rcs $(NAME) $(OBJECTS)
-%.o:	%.c
-		$(CC) $(CFLAGS) -c $< -o $@
+####################################################################
+#                            PATHS                                 #
+####################################################################
+
+OBJ_PATH	=	src/obj/
+SRC_PATH	=	src/
+
+SRCS		=	$(addprefix $(SRC_PATH), $(SRC))
+OBJS		=	$(addprefix $(OBJ_PATH), $(OBJ))
+
+INCS		=	./include/
+
+
+####################################################################
+#                            RULES                                 #
+####################################################################
+
+all:	$(NAME)
+
+$(NAME):	$(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+
+$(OBJ_PATH)%.o:	$(SRC_PATH)%.c
+	@mkdir -p $(OBJ_PATH)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCS)
+
 clean:
-		rm -f $(OBJECTS)
+	@rm -rf $(OBJ_PATH)
+	@echo "$(COM_COLOR)ft_printf clean:         $(OK_COLOR)[✓]$(NO_COLOR)"
 
-fclean: clean
-		rm -f $(NAME)
+fclean:
+	@rm -rf $(OBJ_PATH)
+	@rm -f $(NAME)
+	@echo "$(COM_COLOR)ft_printf fclean:        $(OK_COLOR)[✓]$(NO_COLOR)"
 
-re:		fclean all 
+re: fclean all
 
-.PHONY: clean fclean re all
+####################################################################
+#                            COLORS                                #
+####################################################################
+
+COM_COLOR   = \033[0;34m
+OK_COLOR    = \033[0;32m
+NO_COLOR    = \033[m
