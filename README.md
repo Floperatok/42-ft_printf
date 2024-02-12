@@ -6,6 +6,17 @@ The `ft_printf` project allowed us to learn C ellipsis notation and how to handl
 Subject : <a href=asset/en.subject.pdf>en.ft_printf_subject.pdf<a/>
 ### My grade
 [![nsalles's 42 ft_printf Score](https://badge42.coday.fr/api/v2/clshyl91d071301p436jjiyqr/project/3366017)](https://github.com/Coday-meric/badge42)
+## Features
+My `ft_printf` features the following conversions :
+- **%c**	Prints a single character.
+- **%s**	Prints a string.
+- **%p**	Prints a pointer.
+- **%d**	Prints a decimal (base 10) number.
+- **%i**	Prints an integer in base 10.
+- **%u**	Prints an unsigned decimal (base 10) number.
+- **%x**	Prints a number in hexadecimal (base 16) lowercase format.
+- **%X**	Prints a number in hexadecimal (base 16) uppercase format.
+- **%%**	Prints a percent sign.
 ## Usage
 Download `ft_printf` and enter the repo :
 ```sh
