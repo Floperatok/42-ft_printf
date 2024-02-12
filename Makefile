@@ -3,71 +3,41 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+         #
+#    By: nsalles <nsalles@student.42perpignan.fr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/15 18:55:17 by nsalles           #+#    #+#              #
-#    Updated: 2023/11/20 20:17:12 by nsalles          ###   ########.fr        #
+#    Updated: 2024/02/12 01:54:03 by nsalles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-
-####################################################################
-#                            CONFIG                                #
-####################################################################
 
 CC			=	cc
 CFLAGS		=	-Wall -Werror -Wextra
 NAME		=	ft_printf.a
 
-####################################################################
-#                            FILES                                 #
-####################################################################
-
-SRC			=	ft_printf.c ft_printf2.c
-
-OBJ			=	$(SRC:.c=.o)
-
-####################################################################
-#                            PATHS                                 #
-####################################################################
-
-OBJ_PATH	=	src/obj/
 SRC_PATH	=	src/
+SRC			=	ft_printf.c \
+				ft_printf2.c
 
-SRCS		=	$(addprefix $(SRC_PATH), $(SRC))
-OBJS		=	$(addprefix $(OBJ_PATH), $(OBJ))
+OBJ_PATH	=	objs/
+OBJ			=	$(addprefix $(OBJ_PATH), $(SRC:.c=.o))
 
 INCS		=	./include/
 
 
-####################################################################
-#                            RULES                                 #
-####################################################################
-
 all:	$(NAME)
 
-$(NAME):	$(OBJS)
-	@ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 $(OBJ_PATH)%.o:	$(SRC_PATH)%.c
-	@mkdir -p $(OBJ_PATH)
-	@$(CC) $(CFLAGS) -c $< -o $@ -I $(INCS)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -I $(INCS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJ_PATH)
-	@echo "$(COM_COLOR)clean ft_printf:             $(OK_COLOR)[✓]$(NO_COLOR)"
+	rm -rf $(OBJ_PATH)
 
 fclean:
-	@rm -rf $(OBJ_PATH)
-	@rm -f $(NAME)
-	@echo "$(COM_COLOR)fclean ft_printf:            $(OK_COLOR)[✓]$(NO_COLOR)"
+	rm -rf $(OBJ_PATH)
+	rm -f $(NAME)
 
 re: fclean all
-
-####################################################################
-#                            COLORS                                #
-####################################################################
-
-COM_COLOR   = \033[0;34m
-OK_COLOR    = \033[0;32m
-NO_COLOR    = \033[m
