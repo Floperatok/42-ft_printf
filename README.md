@@ -30,4 +30,4 @@ you can now use my `ft_printf` on all you projects using the `ft_printf.a` file 
 ```sh
 gcc ft_printf.a your_project.c
 ```
-Note that my implementation of `ft_printf` is also available in my [**libft**](https://github.com/Floperatok/42-libft).
+Note that my implementation of `ft_printf` is also available in my [libft](https://github.com/Floperatok/42-libft).
