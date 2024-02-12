@@ -3,21 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsalles <nsalles@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nsalles <nsalles@student.42perpignan.fr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:17:40 by nsalles           #+#    #+#             */
-/*   Updated: 2023/10/24 01:57:07 by nsalles          ###   ########.fr       */
+/*   Updated: 2024/02/12 14:29:18 by nsalles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
+ *	Print char into stdout.
+*/
 int	ft_putchar(int c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
+/*
+ *	Print string into stdout.
+*/
 int	ft_putstr(char *s)
 {
 	int	i;
@@ -32,7 +38,9 @@ int	ft_putstr(char *s)
 		write(1, &s[i++], 1);
 	return (i);
 }
-
+/*
+ *	Format and print integer into stdout.
+*/
 int	ft_putnbr(int n)
 {
 	int	i;
@@ -58,6 +66,9 @@ int	ft_putnbr(int n)
 	return (i);
 }
 
+/*
+ *	Formats the argument into the letter type.
+*/
 int	ft_printf_switch(va_list arg, char c)
 {
 	if (c == 'c')
@@ -81,6 +92,18 @@ int	ft_printf_switch(va_list arg, char c)
 	return (0);
 }
 
+/*
+ *	Write formatted output to stdout, returns the number of bytes printed.
+ *	Format supported :
+ *	%c	:	char
+ *	%s	:	string
+ *	%p	:	pointer
+ *	%d	:	int
+ *	%i	:	int
+ *	%u	:	unsigned int
+ *	%x	:	hexa lower letters
+ *	%X	:	hexa upper letters
+*/
 int	ft_printf(const char *str, ...)
 {
 	va_list	arg;
